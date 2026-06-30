@@ -1,31 +1,31 @@
 # Tokenomics: Taming the "Linguistic Tax" in Global AI
 
-## 💡 The Problem: The Hidden Linguistic Tax
-Current Large Language Model (LLM) tokenizers utilize Byte-Pair Encoding (BPE) vocabularies heavily optimized for Latin-based scripts. When processing non-English languages (such as Tamil, Hindi, or Arabic), text is severely fragmented into smaller byte-sized sub-words.
+An enterprise-ready gateway architecture and middleware engine designed to expose, evaluate, and mitigate structural token-inflation disparities across non-Latin scripts (such as Tamil and Hindi) before routing payloads to commercial LLM clusters.
 
-This architectural inequality imposes a literal **Linguistic Tax** on global users:
-*   **Economic Penalty:** API requests for semantically identical prompts cost **3x to 8x more** in non-Latin scripts.
-*   **Performance Penalty:** Fragmented tokenization consumes context windows significantly faster.
-*   **Latency Penalty:** More tokens per sentence mean slower inference speeds.
+## 💡 The Core Problem
+Most Large Language Model (LLM) tokenizers rely on Byte-Pair Encoding (BPE) vocabularies heavily optimized for English. When processing non-English scripts, words are aggressively fragmented into small byte-sized sub-words. 
 
-## 🚀 The Solution: Tokenomics Gateway
-`Tokenomics` is a gateway architecture and token-economic middleware layer designed to balance the global compute economy. By introducing local optimization protocols, intelligent context-routing, and decentralized token incentives, the Gateway mitigates structural optimization imbalances before queries hit commercial LLM endpoints.
+This architectural flaw imposes a literal **Linguistic Tax** on global users:
+*   **Economic Penalty:** API pricing for semantically identical requests can cost **2.5x to 4x more** in non-Latin scripts.
+*   **Context Saturation:** Highly fragmented tokenization fills context windows significantly faster.
+*   **Inference Latency:** Slower token-by-token processing speeds for global languages.
 
-### Key Architectural Layers
-1. **Linguistic Benchmarking Engine (`/metrics`):** Dynamically calculates token-inflation variables and real-time API cost disparities across multi-lingual inputs.
-2. **Compression & Structural Mapping:** Optimizes or translates raw token payloads upstream to bypass bloated token structures.
-3. **Tokenomic Incentive Coordination:** Synthesizes cryptographic or localized network resource coordination mechanisms to subsidize or redistribute the cost overhead of localized multi-lingual compute.
+---
 
-## 🛠️ Project Setup
+## 🚀 System Architecture & Topologies
 
-### Prerequisites
-* Python 3.10+
-* Git
+The codebase is split into an algorithmic backend engine and a modern web dashboard:
 
-### Installation
-Clone the repository and install the development dependencies locally:
-
-```bash
-git clone [https://github.com/DineshSekar28/Tokenomics.git](https://github.com/DineshSekar28/Tokenomics.git)
-cd Tokenomics
-pip install -e .
+```text
+Tokenomics/
+├── tokenomics/src/
+│   ├── core/
+│   │   └── interceptor.py     # Main payload interception & compression gateway logic
+│   └── utils/
+│       └── formatter.py       # Currency and metric compliance formatting utilities
+├── benchmarks/
+│   ├── benchmark.py           # Native token efficiency calculation benchmarks
+│   └── run_simulation.py      # Middleware node routing simulator
+├── frontend/                  # React + Vite Dark-Mode Web Dashboard Interface
+├── app_cli.py                 # Interactive terminal dashboard console app
+└── run_gateway.py             # Main end-to-end local test pipeline driver

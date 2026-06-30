@@ -1,12 +1,11 @@
 import tiktoken
-
+from tokenomics.src.utils.formatter import format_currency  # Native utility integration
 
 class TokenomicsGateway:
     """
     Core middleware engine responsible for intercepting multi-lingual payloads,
     analyzing structural tokenization inflation, and applying mitigation strategies.
     """
-
     def __init__(self, model_encoding: str = "o200k_base", base_cost_per_1m: float = 2.50):
         try:
             self.encoder = tiktoken.get_encoding(model_encoding)
@@ -38,14 +37,12 @@ class TokenomicsGateway:
 
     def optimize_routing(self, analysis: dict) -> dict:
         """
-        Simulates tactical routing adjustments (e.g., fallback routing to decentralized
-        fine-tuned local models or vocabulary-extended token layers).
+        Simulates tactical routing adjustments and formats economic outputs using internal utils.
         """
         metrics = analysis["metrics"]
         original_tokens = metrics["tokens"]
 
         if metrics["requires_tokenomic_subsidy"]:
-            # Simulate a 40% reduction in token overhead via structural mapping/local compression
             optimized_tokens = max(1, int(original_tokens * 0.60))
             optimized_cost = (optimized_tokens / 1_000_000) * self.base_cost_per_1m
             savings = metrics["raw_api_cost_usd"] - optimized_cost
@@ -61,5 +58,6 @@ class TokenomicsGateway:
             "strategy_applied": strategy,
             "before_tokens": original_tokens,
             "after_tokens": optimized_tokens,
-            "economic_savings_usd": savings
+            "economic_savings_formatted": format_currency(savings), # Clean string update
+            "raw_savings_usd": savings
         }
